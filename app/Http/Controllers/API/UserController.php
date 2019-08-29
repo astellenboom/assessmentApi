@@ -11,8 +11,8 @@ class UserController extends Controller {
 
 public $successStatus = 200;
 /** 
-* login api 
-* 
+* login api end point
+* requires email and password
 * @return \Illuminate\Http\Response 
 */ 
 public function login(){ 
@@ -21,6 +21,7 @@ public function login(){
 	
 		$user = Auth::user(); 
 		$success['token'] =  $user->createToken('laravelAPI')-> accessToken; 
+		$success["user_id"] = $user->id;
 		return response()->json(['success' => $success], $this-> successStatus); 
 	
 	} 
@@ -29,8 +30,8 @@ public function login(){
 	} 
 }
 /** 
-* Register api 
-* 
+* Register api end point 
+* @param Request $request 	name, email, password and confirm password required to register users
 * @return \Illuminate\Http\Response 
 */ 
 public function register(Request $request){

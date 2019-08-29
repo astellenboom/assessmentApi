@@ -10,7 +10,8 @@ use App\Imageupload;
 /*
 
 * Controller method to upload images to the database 
-* @param Request $request
+* @param Request $request image and user id required to upload images
+* @returns success message, path and image name
 */
 
 
@@ -46,7 +47,8 @@ class ImageUploadController extends Controller
 /*
 
 * Controller method to get all images from the database 
-* @param Request $request
+* @param Request $request user id required to retrieve all images assocaited with the user
+* @returns Images
 */
 public function getAllImages(Request $request){
 
@@ -78,7 +80,8 @@ public function getAllImages(Request $request){
 
 /*
 * Controller method to get images by search 
-* @param Request $request
+* @param Request $request image name required to retrieve the image requested by the user
+* @returns Images
 *
 */
 
